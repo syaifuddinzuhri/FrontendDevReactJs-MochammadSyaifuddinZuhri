@@ -9,11 +9,11 @@ export interface IHeaderBarProps {
   children?: React.ReactNode;
   isBack: boolean;
   title: string;
+  onClick: () => void;
 }
 
 const HeaderBar: React.FC<IHeaderBarProps> = (props) => {
-  const { children, isBack, title } = props;
-  const router = useRouter();
+  const { children, isBack, title, onClick } = props;
   return (
     <Box
       backgroundPosition="bottom"
@@ -24,7 +24,7 @@ const HeaderBar: React.FC<IHeaderBarProps> = (props) => {
       gap={3}
     >
       {isBack && (
-        <BiArrowBack cursor={"pointer"} onClick={() => router.back()} />
+        <BiArrowBack cursor={"pointer"} onClick={onClick} />
       )}
       <Text fontSize={"md"}>{title}</Text>
     </Box>

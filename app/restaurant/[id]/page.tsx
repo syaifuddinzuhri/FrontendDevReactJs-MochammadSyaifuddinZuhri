@@ -6,13 +6,15 @@ import AppDesktopLayout from '@/src/components/Layouts/AppDesktopLayout'
 import Rating from '@/src/components/Rating'
 import RestaurantDetailSkeleton from '@/src/components/Skeleton/RestaurantDetailSkeleton'
 import { Box, Card, CardBody, Divider, Flex, Grid, GridItem, Heading, Image, Text } from '@chakra-ui/react'
-import { useParams } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import { handleErrorImage } from "@/src/utils/common";
 import Reviews from "@/src/components/Restaurants/Reviews";
+import { useFilterStore } from "@/src/stores/filter";
 
 const RestaurantDetailPage = () => {
+  const router = useRouter();
   const params = useParams();
   const {
     data: restaurantDetailData,
@@ -23,10 +25,24 @@ const RestaurantDetailPage = () => {
     !isEmpty(params.id.toString())
   );
 
+  const setStatus = useFilterStore(state => state.setStatus);
+  const setCategory = useFilterStore(state => state.setCategory);
+  const setCurrentPageRestaurantList = useFilterStore(state => state.setCurrentPageRestaurantList);
+  const setPrice = useFilterStore(state => state.setPrice);
+
+
+  const handleBack = () => {
+    setCurrentPageRestaurantList(1);
+    setCategory("")
+    setStatus("")
+    setPrice(0)
+    router.push('/');
+  }
+
   return (
     <AppDesktopLayout>
       <Box paddingY={6}>
-        <HeaderBar isBack={true} title={"Restaurant Detail"} />
+        <HeaderBar isBack={true} title={"Restaurant Detail"} onClick={handleBack} />
         <Grid
           templateAreas={{ base: `"nav" "main"`, sm: `"nav main"` }}
           gridTemplateColumns={{ base: '1fr', sm: '1fr 30%' }}
