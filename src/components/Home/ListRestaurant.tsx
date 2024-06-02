@@ -13,8 +13,11 @@ import { useFilterStore } from '@/src/stores/filter';
 const ListRestaurant = () => {
     const { filter, pagination } = useSearchStore();
     const { price, category, status, currentPageRestaurantList } = useFilterStore();
+    const setStatus = useFilterStore(state => state.setStatus);
+    const setCategory = useFilterStore(state => state.setCategory);
     const setCurrentPageRestaurantList = useFilterStore(state => state.setCurrentPageRestaurantList);
-
+    const setPrice = useFilterStore(state => state.setPrice);
+    
     const [restaurants, setRestaurants] = useState<RestaurantResponse[]>([]);
     const [originalRestaurants, setOriginalRestaurants] = useState<RestaurantResponse[]>([]);
     const [isLastPage, setIsLastPage] = useState<boolean>(false);
@@ -33,6 +36,15 @@ const ListRestaurant = () => {
     const handleLoadMore = () => {
         setCurrentPageRestaurantList(currentPageRestaurantList + 1);
     };
+
+    useEffect(() => {
+        setCurrentPageRestaurantList(1);
+        setCategory("")
+        setStatus("")
+        setPrice(0)
+    
+    }, [])
+    
 
     useEffect(() => {
         restaurantRefetch();

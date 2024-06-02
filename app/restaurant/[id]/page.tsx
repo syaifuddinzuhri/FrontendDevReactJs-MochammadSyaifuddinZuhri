@@ -25,17 +25,7 @@ const RestaurantDetailPage = () => {
     !isEmpty(params.id.toString())
   );
 
-  const setStatus = useFilterStore(state => state.setStatus);
-  const setCategory = useFilterStore(state => state.setCategory);
-  const setCurrentPageRestaurantList = useFilterStore(state => state.setCurrentPageRestaurantList);
-  const setPrice = useFilterStore(state => state.setPrice);
-
-
   const handleBack = () => {
-    setCurrentPageRestaurantList(1);
-    setCategory("")
-    setStatus("")
-    setPrice(0)
     router.push('/');
   }
 
