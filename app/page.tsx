@@ -1,95 +1,24 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import FilterHome from '@/src/components/Home/FilterHome'
+import ListRestaurant from '@/src/components/Home/ListRestaurant'
+import AppDesktopLayout from '@/src/components/Layouts/AppDesktopLayout'
+import Button from '@/theme/components/Button'
+import { Box, Checkbox, Divider, Flex, FormControl, Select, Text } from '@chakra-ui/react'
+import React from 'react'
 
-export default function Home() {
+const HomePage = () => {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+    <AppDesktopLayout>
+      <Box paddingY={6}>
+        <Text fontWeight={"semibold"} fontSize={"3xl"} color={"gray.700"}>
+          Restaurants
+        </Text>
+        <Text mt={3} fontSize={"md"} color={"gray.700"}>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, tenetur quidem sed quos autem nostrum non omnis quod aperiam magnam sint totam, est repellat consectetur. Odio similique adipisci labore dolorem?
+        </Text>
+      </Box>
+      <ListRestaurant />
+    </AppDesktopLayout>
+  )
 }
+
+export default HomePage
