@@ -49,7 +49,7 @@ const FilterHome = () => {
                         <Text mb={2} fontSize={"md"} color={"gray.700"}>Status:</Text>
                         <Checkbox onChange={handleStatusChange} isChecked={status === 'open' ? true : false}>Open Now</Checkbox>
                     </Box>
-                    <Box width={"20%"} px={{ base: 0, md: 5 }}>
+                    <Box width={{ base: '100%', sm: '25%', md: '50%', lg: '20%' }} px={{ base: 0, md: 5 }}>
                         <Text mb={2} fontSize={"md"} color={"gray.700"}>Price Range:</Text>
                         <Slider
                             aria-label="slider-ex-1"
@@ -73,9 +73,9 @@ const FilterHome = () => {
                             </SliderMark>
                         </Slider>
                     </Box>
-                    <Box flex={1}>
+                    <Box flex={1} width={{ base: '100%', sm: '25%', md: '50%', lg: '20%' }}>
                         <Text mb={2} fontSize={"md"} color={"gray.700"}>Category:</Text>
-                        <Select width={{ base: '100%', sm: '25%', md: '50%', lg: '20%' }} onChange={handleCategoryChange} value={category || ''}>
+                        <Select onChange={handleCategoryChange} value={category || ''} width={{ base: '100%', sm: '25%', md: '50%', lg: '20%' }}>
                             <option value=''>All Category</option>
                             {categoriesData?.data.map((item: CategoryResponse, i: number) => (
                                 <option value={item.id} key={i}>{item.name}</option>
