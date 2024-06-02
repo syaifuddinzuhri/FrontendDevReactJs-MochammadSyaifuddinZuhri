@@ -56,7 +56,7 @@ const FilterHome = () => {
                             value={price}
                             onChange={handleChange}
                             min={0}
-                            max={900}
+                            max={200}
                             step={10}
                         >
                             <SliderTrack>
@@ -67,10 +67,10 @@ const FilterHome = () => {
                                     {price}
                                 </Box>
                             </SliderThumb>
-                            <SliderMark value={0} mt='1' ml='-2.5' fontSize='sm'>0
+                            {/* <SliderMark value={0} mt='1' ml='-2.5' fontSize='sm'>0
                             </SliderMark>
                             <SliderMark value={900} mt='1' ml='-2.5' fontSize='sm'>900
-                            </SliderMark>
+                            </SliderMark> */}
                         </Slider>
                     </Box>
                     <Box flex={1} width={{ base: '100%', sm: '25%', md: '50%', lg: '20%' }}>
